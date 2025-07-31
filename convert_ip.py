@@ -29,8 +29,8 @@ def ip_to_dec(address: str) -> str:
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python ip_converter.py [-d|-b] <ip_address>")
-        print("  -d  Convert binary IP to decimal")
-        print("  -b  Convert decimal IP to binary")
+        print("    -d  Convert binary IP to decimal")
+        print("    -b  Convert decimal IP to binary")
         sys.exit(1)
 
     if sys.argv[1] == "-d":
