@@ -1,5 +1,5 @@
 """
-lil script to auto download files from wbn's rss feed.
+lil script to auto download files from an rss feed.
 """
 
 from os import path, walk
@@ -76,7 +76,9 @@ def download_episodes(episodes: dict[str, str]) -> None:
 
 
 def main() -> None:
-    with open("worldsbeyondnumber", mode="r", encoding="utf-8") as rss_file:
+    file = "worldsbeyondnumber"
+
+    with open(file, mode="r", encoding="utf-8") as rss_file:
         feed = rss_file.read()
 
     episodes = get_episodes(feed, find_indices(feed))
