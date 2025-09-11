@@ -1,5 +1,5 @@
 """
-lil script to auto download files from an rss feed.
+lil script to auto download files from wbn's rss feed.
 """
 
 from os import path, walk
@@ -47,7 +47,7 @@ def get_episodes(feed: str, start_indices: list[tuple[int, int]]) -> dict[str, s
 def download_episodes(episodes: dict[str, str]) -> None:
     initial_wait = 30
     recheck_wait_time = 3
-    download_path = path.join(path.expanduser("~"), "Downloads")
+    download_path = path.join(path.expanduser("~"), "dwnlds")
 
     for index, title in enumerate(episodes.keys()):
         open_link(episodes[title], new=2, autoraise=False)
