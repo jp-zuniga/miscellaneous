@@ -71,7 +71,7 @@ int hexadecimalToDecimal(std::string hexadecimal) {
 
 int main() {
   std::string input;
-  std::cout << "Enter your value (ex: 45d, 100111b, 1Ah): ";
+  std::cout << "Escribe su valor (ej: 45d, 100111b, 1Ah): ";
   std::cin >> input;
 
   char suffix = std::tolower(input.back());
@@ -89,14 +89,14 @@ int main() {
     decimal = hexadecimalToDecimal(valueStr);
     break;
   default:
-    std::cout << "Invalid suffix. Use d, b or h." << std::endl;
+    std::cout << "Sufijo inválido. Use d, b o h." << std::endl;
     return 1;
   }
 
   std::string binary = decimalToBinary(decimal);
   std::string hexadecimal = decimalToHexadecimal(decimal);
 
-  std::cout << "\nResults:\n";
+  std::cout << "\nResultados:\n";
   std::cout << decimal << "d = " << binary << "b = " << hexadecimal << "h"
             << std::endl;
 
