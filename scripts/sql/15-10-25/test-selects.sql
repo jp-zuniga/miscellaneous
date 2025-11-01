@@ -1,4 +1,4 @@
-SELECT
+select
 	CurrencyRateID,
 	CurrencyRateDate,
 	ToCurrencyCode,
@@ -6,42 +6,27 @@ SELECT
 	EndOfDayRate
 from Sales.CurrencyRate;
 
-SELECT
+select
 	SalesOrderID,
 	SalesOrderDetailID,
 	CarrierTrackingNumber,
 	OrderQty,
 	ProductID,
 	UnitPrice
-FROM Sales.SalesOrderDetail;
+from Sales.SalesOrderDetail;
 
-SELECT
+select
 	ProductID,
 	Name,
 	ProductNumber,
-	-- MakeFlag,
-	-- FinishedGoodsFlag,
 	Color,
 	SafetyStockLevel,
 	ReorderPoint,
 	StandardCost,
 	ListPrice,
-	-- Size,
-	-- SizeUnitMeasureCode,
-	-- WeightUnitMeasureCode,
-	-- Weight,
-	-- DaysToManufacture,
-	-- ProductLine,
-	-- Class,
-	-- Style,
 	ProductSubcategoryID,
 	ProductModelID
-	-- SellStartDate,
-	-- SellEndDate,
-	-- DiscontinuedDate,
-	-- rowguid,
-	-- ModifiedDate
-FROM Production.Product;
+from Production.Product;
 
 select * from Production.ProductSubcategory;
 select * from Production.ProductCategory;
