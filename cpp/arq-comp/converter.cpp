@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string decimalToBinary(int decimal) {
+std::string decimal_to_binary(int decimal) {
   if (decimal == 0) {
     return "0";
   }
@@ -17,7 +17,7 @@ std::string decimalToBinary(int decimal) {
   return binary;
 }
 
-std::string decimalToHexadecimal(int decimal) {
+std::string decimal_to_hexadecimal(int decimal) {
   if (decimal == 0) {
     return "0";
   }
@@ -33,7 +33,7 @@ std::string decimalToHexadecimal(int decimal) {
   return hexadecimal;
 }
 
-int binaryToDecimal(std::string binary) {
+int binary_to_decimal(std::string binary) {
   int power = 0;
   int decimal = 0;
 
@@ -48,7 +48,7 @@ int binaryToDecimal(std::string binary) {
   return decimal;
 }
 
-int hexadecimalToDecimal(std::string hexadecimal) {
+int hexadecimal_to_decimal(std::string hexadecimal) {
   int decimal = 0;
   int power = 0;
 
@@ -83,18 +83,18 @@ int main() {
     decimal = std::stoi(valueStr);
     break;
   case 'b':
-    decimal = binaryToDecimal(valueStr);
+    decimal = binary_to_decimal(valueStr);
     break;
   case 'h':
-    decimal = hexadecimalToDecimal(valueStr);
+    decimal = hexadecimal_to_decimal(valueStr);
     break;
   default:
     std::cout << "Sufijo inválido. Use d, b o h." << std::endl;
     return 1;
   }
 
-  std::string binary = decimalToBinary(decimal);
-  std::string hexadecimal = decimalToHexadecimal(decimal);
+  std::string binary = decimal_to_binary(decimal);
+  std::string hexadecimal = decimal_to_hexadecimal(decimal);
 
   std::cout << "\nResultados:\n";
   std::cout << decimal << "d = " << binary << "b = " << hexadecimal << "h"
