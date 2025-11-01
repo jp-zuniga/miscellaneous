@@ -1,0 +1,3 @@
+# Python
+
+Easy-mode scripting.

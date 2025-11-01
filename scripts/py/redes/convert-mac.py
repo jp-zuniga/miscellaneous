@@ -1,9 +1,9 @@
 """
 Takes a MAC address and converts it:
-from hexadecimal to binary, or from binary to hexadecimal.
+from hexadecimal to binary, or vice-versa.
 """
 
-import sys
+from sys import argv, exit
 
 
 def mac_to_bin(address: str) -> str:
@@ -32,16 +32,22 @@ def mac_to_hex(address: str) -> str:
     return ":".join(hex_pairs)
 
 
-if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python mac_converter.py [-h|-b] <mac_address>")
-        print("      -h  Convert hex MAC to binary")
-        print("      -b  Convert binary MAC to hex")
-        sys.exit(1)
+def main(args: list[str]) -> None:
+    if len(args) != 3:
+        print("Usage:")
+        print("  python convert-mac.py [option] <mac>")
+        print("Options:")
+        print("  -b: Convert binary MAC to hex")
+        print("  -h: Convert hex    MAC to binary")
+        exit(1)
 
-    if sys.argv[1] == "-h":
-        print(mac_to_bin(sys.argv[2]))
-    elif sys.argv[1] == "-b":
-        print(mac_to_hex(sys.argv[2]))
+    if args[1] == "-h":
+        print(mac_to_bin(args[2]))
+    elif args[1] == "-b":
+        print(mac_to_hex(args[2]))
     else:
         print("Invalid option. Use -h or -b")
+
+
+if __name__ == "__main__":
+    main(argv)
