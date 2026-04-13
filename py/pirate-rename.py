@@ -1,8 +1,11 @@
+#!/usr/bin/env -S uv run --script
+
 """
 pirate script, arrr!
 """
 
-from os import path, walk
+from os import getcwd
+from pathlib import Path
 from sys import argv, exit
 
 
@@ -18,16 +21,25 @@ def rename(subdir: str, prefix: str, suffix: str, ext: str = ".mkv") -> None:
 
     """
 
-    for dirpath, _, files in walk(path.join(path.dirname(__file__), subdir)):
-        for file in files:
-            if file.endswith(ext):
-                og = path.join(dirpath, file)
-                new = path.join(
-                    dirpath, file.replace(prefix, "").replace(suffix, "")
-                )
+    wrk_dir = Path(getcwd()).joinpath(subdir)
 
-                input(f"Confirm:\nFrom: {og}\nTo: {new}")
-                rename(og, new)
+    if not wrk_dir.exists():
+        print(f"{subdir} does not exist!")
+        return
+
+    for dirpath, _, files in wrk_dir.walk():
+        for file in sorted(files):
+            if not file.endswith(ext):
+                continue
+
+            og = dirpath.joinpath(file)
+            new = dirpath.joinpath(
+                file.removeprefix(prefix).removesuffix(ext).removesuffix(suffix).strip()
+                + ext,
+            )
+
+            input(f"Confirm:\nFrom: {og}\nTo: {new}")
+            og.rename(new)
 
 
 def main(args: list[str]) -> None:
